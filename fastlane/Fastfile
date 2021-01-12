@@ -102,7 +102,7 @@ platform :ios do
 
   ################ Release Latest ################
 
-  desc "Release Latest Tag"
+  desc "Create a Release and Tag"
   lane :releaseLatest do
 
     tag = last_git_tag
