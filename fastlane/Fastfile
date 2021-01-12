@@ -1,0 +1,79 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+xcversion(version: "12.3")
+xcode_select "/Applications/Xcode.app"
+default_platform(:ios)
+
+platform :ios do
+
+  ################ Print Version Number - Build Number ################
+
+  desc "Print the version and build"
+  lane :printVersion do
+    version = get_version_number
+    build = get_build_number
+
+    UI.message("")
+    UI.header("Version (Build)")
+    UI.important("%s (%s)" % [version, build])
+  end
+
+  ################ Bump Version ################
+
+  desc "Bump the version and push it to repo"
+  lane :bumpversion do |options|
+
+    ensure_git_status_clean
+    bumpedVersion = false
+
+    if options[:major]
+      increment_version_number_in_xcodeproj(bump_type: "major")
+      bumpedVersion = true
+    end
+
+    if options[:minor]
+      increment_version_number_in_xcodeproj(bump_type: "minor")
+      bumpedVersion = true
+    end
+
+    if options[:patch]
+      increment_version_number_in_xcodeproj(bump_type: "patch")
+      bumpedVersion = true
+    end
+
+
+    if bumpedVersion
+      version = get_version_number
+      commit_version_bump(message: "Bump version to %s" % version, xcodeproj: "FastlaneTest.xcodeproj")
+      push_to_git_remote(tags: false)
+    end
+
+  end
+
+  ################ Archiving ################
+
+  desc "Archive a new version at ./Build for in-house deployment"
+  desc ""
+  desc "- Sanity Check - git status"
+  lane :archive do
+    get_certificates
+    get_provisioning_profile
+    gym(
+      export_xcargs: "-allowProvisioningUpdates"
+    )
+  end
+
+end
