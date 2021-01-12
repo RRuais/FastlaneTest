@@ -114,7 +114,6 @@ platform :ios do
         repository_name: "RRuais/FastlaneTest",
         name: tag,
         tag_name: tag,
-        commitish: "master"
     )
 
   end
