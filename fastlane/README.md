@@ -31,6 +31,11 @@ Bump the build and push it to repo
 fastlane ios bumpversion
 ```
 Bump the version and push it to repo
+### ios tag
+```
+fastlane ios tag
+```
+Create a new tag and push it to repo
 ### ios archive
 ```
 fastlane ios archive

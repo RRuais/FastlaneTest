@@ -19,6 +19,10 @@ default_platform(:ios)
 
 platform :ios do
 
+  before_all do |lane, options|
+    ensure_git_status_clean
+  end
+
   ################ Print Version Number - Build Number ################
 
   desc "Print the version and build"
@@ -48,7 +52,6 @@ platform :ios do
   desc "Bump the version and push it to repo"
   lane :bumpversion do |options|
 
-    ensure_git_status_clean
     bumpedVersion = false
 
     if options[:major]
@@ -71,6 +74,28 @@ platform :ios do
       version = get_version_number
       commit_version_bump(message: "Bump version to %s" % version, xcodeproj: "FastlaneTest.xcodeproj")
       push_to_git_remote(tags: false)
+    end
+
+  end
+
+  ################ Tagging ################
+
+  desc "Create a new tag and push it to repo"
+  lane :tag do |options|
+
+    version = get_version_number
+    targetTag = "v" + version
+
+    if options[:suffix]
+      targetTag += "-" + options[:suffix]
+    end
+
+    if git_tag_exists(tag: targetTag)
+      UI.message("Tag Already Exists: %s" % targetTag)
+    else
+      UI.message("Creating Tag: %s" % targetTag)
+      add_git_tag(tag: targetTag)
+      push_git_tags(tag: targetTag)
     end
 
   end
