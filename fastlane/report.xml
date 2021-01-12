@@ -5,32 +5,32 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: xcversion" time="0.537726">
+      <testcase classname="fastlane.lanes" name="0: xcversion" time="0.542553">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: xcode_select" time="0.000324">
+      <testcase classname="fastlane.lanes" name="1: xcode_select" time="0.000367">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: default_platform" time="0.000219">
+      <testcase classname="fastlane.lanes" name="2: default_platform" time="0.000201">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: ensure_git_status_clean" time="0.013826">
+      <testcase classname="fastlane.lanes" name="3: ensure_git_status_clean" time="0.014081">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: last_git_tag" time="0.026547">
+      <testcase classname="fastlane.lanes" name="4: get_version_number" time="0.075256">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: set_github_release" time="0.587772">
+      <testcase classname="fastlane.lanes" name="5: set_github_release" time="0.863395">
         
       </testcase>
     
