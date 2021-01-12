@@ -38,7 +38,7 @@ platform :ios do
   ################ Bump Build ################
 
   desc "Bump the build and push it to repo"
-  lane :bumpbuild do
+  lane :bumpBuild do
 
     increment_build_number
     build = get_build_number
@@ -50,7 +50,7 @@ platform :ios do
   ################ Bump Version ################
 
   desc "Bump the version and push it to repo"
-  lane :bumpversion do |options|
+  lane :bumpVersion do |options|
 
     bumpedVersion = false
 
@@ -97,6 +97,23 @@ platform :ios do
       add_git_tag(tag: targetTag)
       push_git_tags(tag: targetTag)
     end
+
+  end
+
+  ################ Release Latest ################
+
+  desc "Release Latest Tag"
+  lane :releaseLatest do
+
+    tag = last_git_tag
+
+    github_release = set_github_release(
+        api_token: ENV["GITHUB_TOKEN"],
+        repository_name: "RRuais/FastlaneTest",
+        name: tag,
+        tag_name: tag,
+        commitish: "master"
+    )
 
   end
 

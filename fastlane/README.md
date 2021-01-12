@@ -21,14 +21,14 @@ or alternatively using `brew install fastlane`
 fastlane ios printVersion
 ```
 Print the version and build
-### ios bumpbuild
+### ios bumpBuild
 ```
-fastlane ios bumpbuild
+fastlane ios bumpBuild
 ```
 Bump the build and push it to repo
-### ios bumpversion
+### ios bumpVersion
 ```
-fastlane ios bumpversion
+fastlane ios bumpVersion
 ```
 Bump the version and push it to repo
 ### ios tag
@@ -36,6 +36,11 @@ Bump the version and push it to repo
 fastlane ios tag
 ```
 Create a new tag and push it to repo
+### ios releaseLatest
+```
+fastlane ios releaseLatest
+```
+Release Latest Tag
 ### ios archive
 ```
 fastlane ios archive
