@@ -21,6 +21,11 @@ or alternatively using `brew install fastlane`
 fastlane ios printVersion
 ```
 Print the version and build
+### ios bumpbuild
+```
+fastlane ios bumpbuild
+```
+Bump the build and push it to repo
 ### ios bumpversion
 ```
 fastlane ios bumpversion

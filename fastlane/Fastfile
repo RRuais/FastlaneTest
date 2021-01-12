@@ -31,6 +31,18 @@ platform :ios do
     UI.important("%s (%s)" % [version, build])
   end
 
+  ################ Bump Build ################
+
+  desc "Bump the build and push it to repo"
+  lane :bumpbuild do
+
+    increment_build_number
+    build = get_build_number
+    commit_version_bump(message: "Bump build to %s" % build, xcodeproj: "FastlaneTest.xcodeproj")
+    push_to_git_remote(tags: false)
+
+  end
+
   ################ Bump Version ################
 
   desc "Bump the version and push it to repo"
