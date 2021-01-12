@@ -40,7 +40,7 @@ Create a new tag and push it to repo
 ```
 fastlane ios releaseLatest
 ```
-Release Latest Tag
+Create a Release and Tag
 ### ios archive
 ```
 fastlane ios archive
