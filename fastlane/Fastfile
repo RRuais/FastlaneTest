@@ -105,15 +105,16 @@ platform :ios do
   desc "Create a Release and Tag"
   lane :releaseLatest do
 
-    tag = last_git_tag
+    version = get_version_number
+    targetTag = "v" + version
     token = ENV["GITHUB_TOKEN"]
     UI.message("TOKEN: %s" % token)
 
     github_release = set_github_release(
         api_token: token,
         repository_name: "RRuais/FastlaneTest",
-        name: tag,
-        tag_name: tag,
+        name: targetTag,
+        tag_name: targetTag,
     )
 
   end
