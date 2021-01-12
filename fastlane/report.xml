@@ -5,42 +5,42 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: xcversion" time="0.534002">
+      <testcase classname="fastlane.lanes" name="0: xcversion" time="0.537401">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: xcode_select" time="0.000586">
+      <testcase classname="fastlane.lanes" name="1: xcode_select" time="0.000372">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: default_platform" time="0.000281">
+      <testcase classname="fastlane.lanes" name="2: default_platform" time="0.000188">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: ensure_git_status_clean" time="0.013735">
+      <testcase classname="fastlane.lanes" name="3: ensure_git_status_clean" time="0.013893">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: increment_version_number_in_xcodeproj" time="2.454631">
+      <testcase classname="fastlane.lanes" name="4: get_version_number" time="0.075008">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: get_version_number" time="0.015536">
+      <testcase classname="fastlane.lanes" name="5: git_tag_exists" time="0.012465">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: commit_version_bump" time="0.106871">
+      <testcase classname="fastlane.lanes" name="6: add_git_tag" time="0.017609">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="7: push_to_git_remote" time="4.751543">
+      <testcase classname="fastlane.lanes" name="7: push_git_tags" time="4.764997">
         
       </testcase>
     
